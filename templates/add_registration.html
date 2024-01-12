@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block content %} {% include 'nav/home.html' %}{% load crispy_forms_tags %}
+
+<div class="row mt-5">
+  <div class="col">
+  </div>
+  <div class="col-5">
+    <div class="lead">Land Registration</div>
+    <table class="table table-hover table-striped">
+        <tr>
+            <td>S.No</td>
+            <td>Land Name</td>
+            <td>Buyer Name</td>
+            <td>Actions</td>
+        </tr>
+        <tr>
+            {% for land in land_requests %}
+            <td>{{land.id}}</td>
+            <td>{{land.land.address}}</td>
+            <td>{{land.buyer.name}}</td>
+            <td>
+                <a href="/register_land/{{land.id}}" class="btn btn-success">Register</a>
+            </td>
+            {% endfor %}
+        </tr>
+    </table>
+  </div>
+  <div class="col"></div>
+</div>
+{% endblock content %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block content %} {% include 'nav/home.html' %} {% load crispy_forms_tags %}
+<div class="row text-center">
+    <div class="display-5">Add Land Details</div>
+</div>
+<div class="row mt-5">
+    {% if messages %} {% for message in messages %}
+    <div class="{{ message.tags }}" role="alert">{{ message }}</div>
+    {% endfor %} {% endif %}
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <hr />
+        {% crispy form %}
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+{% endblock content %}

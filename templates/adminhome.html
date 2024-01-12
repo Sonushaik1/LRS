@@ -1,0 +1,34 @@
+{% extends 'base.html' %} {% block content %} {% include 'nav/admin.html' %}
+
+<div class="row mt-5">
+  {% for p in products %}
+  <div class="col-3">
+    <div class="card">
+      <img src="/static/{{p.photo_name}}" alt="{{p.name}}" class="card-img-top" />
+      <div class="card-body">
+        <div class="card-text">
+          <span class="text-primary">Name</span> : &nbsp {{p.name}}
+        </div>
+        <div class="card-text">
+          <span class="text-success">Quantity</span> : &nbsp {{p.quantity}}
+        </div>
+        <div class="card-text">
+          <span class="text-danger">Price</span> : &nbsp {{p.price}}
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="row">
+          <div class="col text-end">
+            <a href="/editproduct/{{p.id}}" class="btn btn-primary">Edit</a>
+          </div>
+          <div class="col text-start">
+            <a href="/deleteproduct/{{p.id}}" class="btn btn-danger">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock content %}
